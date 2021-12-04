@@ -1,14 +1,14 @@
-def xor_cipher(str, key):
+def xor_cipher(s, k):
     crypt = ""
-    for letter in str:
-        crypt += chr(ord(letter) ^ key)
+    for letter in s:
+        crypt += chr(ord(letter) ^ k)
     return crypt
 
 
 key = int(input('Input key: '))
-with open('str.txt', 'r') as inFile:
+with open('strInput.txt', 'r') as inFile:
     text = inFile.read()
-print("original:\t", text)
 encr = xor_cipher(text, key)
-print("encryption:\t", encr)
-print("decryption:\t", xor_cipher(encr, key))
+with open('strOutput.txt', 'w') as outFile:
+    outFile.write(f'encryption:\t{encr}\n')
+    outFile.write(f'decryption:\t{xor_cipher(encr, key)}')
