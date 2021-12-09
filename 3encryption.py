@@ -1,4 +1,5 @@
 def xor_cipher(s, k):
+    """XOR шифрование/расшифрование"""
     crypt = ""
     for letter in s:
         crypt += chr(ord(letter) ^ k)
